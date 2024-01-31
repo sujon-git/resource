@@ -1,0 +1,25 @@
+1. download and install mongodb-database-tools
+	https://www.mongodb.com/try/download/database-tools
+2. add this on system environment variable 'C:\Program Files\MongoDB\Tools\100\bin'
+3. open terminal on where you want to get backup and where from restore
+3. commands:
+	# for backup all databases
+	> mongodump
+	
+	# for specify folder name of backup
+	> mongodump --out backup
+	
+	# for backup single database
+	> mongodump -d PersonDB --out BersonDBBackup
+	
+	# for restore all databases from dump folder
+	> mongorestore
+	
+	# for backup single database
+	> mongorestore BersonDBBackup
+	
+	# for backup single collection
+	> mongodump -d PersonDB -c person --out PersonCollectionBackup
+	
+	# for restore single collection
+	> mongorestore --nsInclude PersonDB.person PersonCollectionBackup

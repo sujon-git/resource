@@ -1,0 +1,32 @@
+
+#Date format
+SELECT FORMAT (getdate(), 'dd-MM-yyyy') as date
+
+#Date cast
+CAST('02-21-2012 6:10:00 PM' AS DATETIME2)
+
+#Get only date from datetime
+SELECT CONVERT(DATE, GETDATE()) date;
+
+#get only date from datetime
+SELECT CONVERT(DATE, GETDATE())
+
+#if in query
+SELECT IIF(1=1, 1, 0)
+
+#change all table schema
+SELECT 'ALTER SCHEMA dbo TRANSFER [' + SysSchemas.Name + '].[' + DbObjects.Name + '];'
+FROM sys.Objects DbObjects
+INNER JOIN sys.Schemas SysSchemas ON DbObjects.schema_id = SysSchemas.schema_id
+WHERE SysSchemas.Name = 'pfoms_premiumfacades'
+AND (DbObjects.Type IN ('U', 'P', 'V'));
+-- run this commad and copy all result and run result now. done :)
+
+#Checking an input param if not Null and using it in where in SQL Server
+where (@code is null or code = @code)
+
+#Comma separated results in SQL
+select STRING_AGG (Sku, ',') AS csv from ProductAttributeCombination
+
+#SQL Server Advanced Functions
+https://towardsdev.com/sql-server-advanced-functions-b18fb871c8e1

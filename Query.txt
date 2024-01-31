@@ -1,0 +1,11 @@
+## check any
+
+SELECT [e].[Id] AS [Value], [s0].[Name] AS [Text]
+FROM [exam].[ExamSubjectSections] AS [e]
+INNER JOIN [exam].[ExamSubjects] AS [e0] ON [e].[ExamSubjectId] = [e0].[Id]
+INNER JOIN [exam].[SubjectWiseExamConfigures] AS [s] ON [e].[SubjectWiseExamConfigureId] = [s].[Id]
+INNER JOIN [common].[Subjects] AS [s0] ON [e0].[SubjectId] = [s0].[Id]
+WHERE (([e0].[ExamBasicInfoId] = 3) AND EXISTS (
+    SELECT 1
+    FROM [exam].[ExamSubjectTeachers] AS [e1]
+    WHERE ([e].[Id] = [e1].[ExamSubjectSectionId]) AND ([e1].[TeacherId] = 18))) AND ([s].[IsManualEntry] = CAST(1 AS bit))

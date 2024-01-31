@@ -1,0 +1,108 @@
+//sum of key value
+arr = [{x:1}, {x:3}]
+arr.reduce((accumulator, current) => accumulator + current.x, 0);
+
+//array recursive sum
+  selectedMarks() {
+    console.log('called')
+    let sum = 0
+    sum = this.sumRecursivly(this.nodes, sum)
+    console.log(sum)
+    return sum
+  }
+  sumRecursivly(nodes, value) {
+    nodes.forEach(element => {
+      value += element.mark
+      value = this.sumRecursivly(element.child, value)
+    })
+    return value
+  }
+
+//Arrow Function
+let Print = () => console.log("Hello TypeScript");
+let sum = (x: number, y: number) => x + y;
+
+
+//filter array
+return arr.filter(book => book.fileOrLink == fileOrLink)
+
+
+//filter and remove a child array from array
+#array
+{
+    "id": 11,
+    "title": "this. is title.",
+    "instructions": "this is instruction",
+    "totalMark": 16,
+    "startDate": "2021-09-08T03:13:14.81",
+    "dueDate": "2021-09-15T03:13:14.81",
+    "assignmentInfoStatus": 1,
+    "subjectName": "Digital Logic Design",
+    "assignmentStudentStatus": 1,
+    "questions": [
+        {
+            "id": 4,
+            "assignmentQuestionId": 7,
+            "height": 0,
+            "width": 0,
+            "answer": null,
+            "mark": 0,
+            "assignmentAnswerType": 7,
+            "question": "<p>add a file</p>",
+            "isAnswered": false,
+            "assignmentQuestionFileLinks": [
+                {
+                    "assignmentQuestionId": 7,
+                    "name": "abc",
+                    "fileOrLink": 2,
+                    "pathOrLink": "abc",
+                    "assignmentQuestion": null,
+                    "id": 13,
+                    "createdBy": 5,
+                    "createdDateUtc": "2021-09-10T05:06:02.4568897",
+                    "updatedBy": null,
+                    "updatedDateUtc": null
+                }
+            ],
+            "assignmentQuestionAnswerFileLinks": [
+                {
+                    "assignmentQuestionAnswerId": 4,
+                    "name": "abc.com",
+                    "fileOrLink": 2,
+                    "pathOrLink": "abc.com",
+                    "assignmentQuestionAnswer": null,
+                    "id": 1,
+                    "createdBy": 2,
+                    "createdDateUtc": "2021-09-17T04:33:44.5913513",
+                    "updatedBy": null,
+                    "updatedDateUtc": null
+                },
+                {
+                    "assignmentQuestionAnswerId": 4,
+                    "name": "dummy.pdf",
+                    "fileOrLink": 1,
+                    "pathOrLink": "Upload/Assignment/QuestionAnswer\\0ad6d515-3a1f-4a0b-bd63-c2fa6f836305.pdf",
+                    "assignmentQuestionAnswer": null,
+                    "id": 2,
+                    "createdBy": 2,
+                    "createdDateUtc": "2021-09-17T04:36:07.9237023",
+                    "updatedBy": null,
+                    "updatedDateUtc": null
+                }
+            ],
+            "assignmentQuestionAnswerOptions": []
+        }
+    ]
+}
+	
+#Answer
+    let question = this.assignmentInfo.questions.find(
+      item => item.id == ob.assignmentQuestionAnswerId,
+    )
+    let fileLink = question.assignmentQuestionAnswerFileLinks.find(item => item.id == ob.id)
+    question.assignmentQuestionAnswerFileLinks = question.assignmentQuestionAnswerFileLinks.filter(
+      obj => obj !== fileLink,
+    )
+
+
+

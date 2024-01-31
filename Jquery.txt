@@ -1,0 +1,27 @@
+#get element
+$(this).find('img');
+$(ele).children("i")
+
+
+#replace class
+(function ($) {
+    $.fn.replaceClass = function (pFromClass, pToClass) {
+        return this.removeClass(pFromClass).addClass(pToClass);
+    };
+}(jQuery));
+$('.divFoo').replaceClass('colored','blackAndWhite');
+
+
+#check is class exists on element
+     if (ele.classList.contains('collapsed')) 
+        i.replaceClass('fa-arrow-circle-down', 'fa-arrow-circle-up');
+     else
+        i.replaceClass('fa-arrow-circle-up', 'fa-arrow-circle-down');
+
+
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+####Create docker image from project####
+- create a file named "Dockerfile" on app root
+- add docker code
+- from vscode right click and select Build Image
+- enter a name for image
+#commad
+> docker build -t [image-name]detsapi .
+
+####Create container from created image####
+docker run --rm --name [name-of-container]parcelkoi -v parcelkoivol:/usr/src/app --net [network-name]mynet -p 3000:3000 -e [environment-variable]"MONGODB_HOST=172.18.0.2" -e [environment-variable]"ELASTICSEARCH_HOST=172.18.0.3" [image-name]parcelkoi
+Info::
+	--rm [after container stoped delete this container]
+	-e [add environmental variables]
+
+
+#######Image#######
+#list of images
+> docker images
+
+
+#######Container#######
+#create container
+> docker run --net [network]mynet -p [pc-port]27017:[container-port]27017 -v [volume-name]mongovol:[path]/data/db --name [container-name]mongodb [image-name]mongo
+#create container with local directory
+> docker run --name [name-of-container]mysql -v [local-folder]/home/test/docker/data:[docker-folder]/var/liv/mysql -e MYSQL_ROOT_PASSWORD=[password]pass -d[for-background-run] [image-name]mysql:letest
+> docker run --name=sqlexpres1 -v E:/Docker/data:/var/opt/mssql/data -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=express!2019" -e "MSSQL_PID=Express" -p 1401:1433 -d mcr.microsoft.com/mssql/server:2019-latest
+#list of running containers
+> docker ps
+#list of all container
+> docker ps -a
+#stop container
+> docker stop [container-name]mongodb
+#start container
+> docker start [container-name/id]
+#delete container
+> docker rm [container-name]mongodb
+#create sql server container
+> docker run --name=sqlserver -v sqlservervol:/var/opt/mssql/data -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Password" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
+
+
+#######Network#######
+#list of network command
+> docker network
+#list of networks
+> docker network ls
+#create network
+> docker network create -d [driver]bridge [network-name]mynet
+#network details
+> docker network inspect mynet
+
+
+
+#######Volume#######
+#list of volume command
+> docker volume
+#list of volumes
+> docker volume ls
+
+
+#######Elasticsearch#######
+> docker run -v esvol:/usr/share/elasticsearch/data --name elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.9.2
+
+
+
+
+
+#######Netshoot#######
+#add netshoot
+> docker run --net mynet -it --name netshoot01 nicolaka/netshoot
+#get container details
+> dig [container-name/id]mongodb
+
+
+
+####Docker-compose####
+#build image from Dockerfile
+> docker-compose build
+#create container and run
+> docker-compose up
+#remove container by compose file
+> docker-compose down
+#revome container with volumes
+> ocker-compose down -v
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

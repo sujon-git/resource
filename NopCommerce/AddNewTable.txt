@@ -1,0 +1,4 @@
+1. Add Table Class in 
+	Nop.Core\Domain
+2. Create a builder for migration
+	Nop.Data\Mapping\Builders

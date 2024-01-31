@@ -1,0 +1,7 @@
+select 
+CONCAT('new Menu() { id = ',id,', parent_id = ',parent_id,', menu_name = "',menu_name,'", system_menu_name = "',system_menu_name,'", is_home = ',is_home,', xorder = ',xorder,', icn_cls = "',icn_cls,'", template_id = ',template_id,', created_at = DateTime.Now, last_action_by = 1},')
+from tblmenus
+
+select 
+CONCAT('new MenuActionMap() { Map_Id = ',Map_Id,', F_Menu_Id = ',F_Menu_Id,', F_Action_Id = ',F_Action_Id,', is_menu_bind = ',is_menu_bind,', URL = "',URL,'", route_path = "',route_path,'" },')
+from tbl_Menu_Action_Map

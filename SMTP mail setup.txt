@@ -1,0 +1,23 @@
+1. Sign in only one email in a browser which mail you want to add on smtp.
+2. Go to this url and Allow less secure apps "https://www.google.com/settings/security/lesssecureapps"
+3. Go to this url and click continue "https://accounts.google.com/DisplayUnlockCaptcha"
+4. Install nuget package : MailKit
+5. Code example :
+		var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("portblix", "fromMail@gmail.com"));
+                message.To.Add(address: MailboxAddress.Parse("student3dets@yopmail.com"));
+                message.Subject = "test2";
+                message.Body = new TextPart("html")
+                {
+                    Text = "<p>this is test sms</p>"
+                };
+
+                using (var client = new SmtpClient())
+                {
+                    client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                    await client.ConnectAsync("smtp.gmail.com", 587, false);
+                    await client.AuthenticateAsync("fromMail@gmail.com", "Password");
+                    await client.SendAsync(message);
+                    await client.DisconnectAsync(true);
+                }

@@ -1,0 +1,5 @@
+1. Ctrl+p --> search files
+2. Ctrl+Shift+k --> delete line
+3. Ctrl+l --> select entire line
+4. Shift+Alt+f --> decorate lines
+5. Ctrl+k.Ctrl+f --> format selection

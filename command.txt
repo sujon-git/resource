@@ -1,0 +1,13 @@
+
+ng serve --disable-host-check
+
+ngrok http 4200 -host-header="http://localhost:4200"
+
+ng serve --ssl
+
+ng build --base-href "/" --prod
+
+ng : 
+ng g module admin --routing
+ng generate module customers --route customers --module app.module
+ng generate class hero --type=model

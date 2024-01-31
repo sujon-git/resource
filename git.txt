@@ -1,0 +1,29 @@
+#create a project and push from local
+1. create a project in git online
+2. goto local directory and open git bash
+3. run those command:
+	i.   git init
+	ii.  git remote add origin https://gitlab.com/mdsujon/docstore.git
+	iii. git add .
+	iv.  git commit -m 'init commit'
+	v.   git push origin master
+
+
+#marge a branch with master:
+1. 1st commit all changes in current branch like sujon_15-09-2021
+2. checkout master 
+3. pull master branch
+4. then checkout sujon_15-09-2021
+5. git merge origin master
+
+
+#clone a branch
+git clone -b <branch> <remote_repo>
+
+#For update .gitignore file
+1st: update .gitignore file
+2nd: run this command> git rm --cached <pathToFolder> -r
+
+git rm --cached API/.vs/* -r
+git rm --cached API/pos-api/appsettings.json
+

@@ -1,0 +1,2 @@
+#change python version
+sudo update-alternatives --config python3

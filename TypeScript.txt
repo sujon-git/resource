@@ -1,0 +1,57 @@
+this.roleList.find(item => item.value == r.roleId).checked = true
+
+this.roleList
+      .filter(function(r) {
+        return r.checked == true
+      })
+      .forEach(res => {
+        console.log(res, 'hiiiiiiiiii')
+      })
+
+
+##How to count certain elements in array?
+[....].filter(x => x==2).length
+
+##contains/like in typescript
+let keys = Object.keys(arr)
+let length = keys.filter(x => x.includes('Computer Fundamentals')).length
+
+##get Distinct value from string array
+let res = keys
+      .map(item => item.split('_')[0])
+      .filter((value, index, self) => self.indexOf(value) === index)
+
+##get distinct rows from array
+const distinctThings = res.filter(
+        (thing, i, arr) =>
+          arr.findIndex(t => t.academicSEssionId === thing.academicSEssionId) === i,
+      )
+
+##From an array of objects, extract value of a property as array
+let result = this.examSubjectTeachers.map(a => a.teacherId)
+##remove rows by result array
+        this.teachers = this.teachers.filter(function(r) {
+          return !result.includes(r.value)
+        })
+
+##Spread Oparator
+const numbers = [1, 2, 3];
+const newNumber = [...numbers, 4, 5, 6]
+
+##Rest Operator
+const learn = (...args) => {
+	console.log(args);
+}
+learn(1, 2, 3, 4);
+
+##Destructuring
+const course = {
+  name: 'React course',
+  details: {
+    //price: '200 tk',
+    duration: '2 hour'
+  }
+}
+const { name } = course;
+const { details: {price = '100 tk'} } = course;
+console.log(price);

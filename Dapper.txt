@@ -1,0 +1,78 @@
+    var conn = _dapper.GetConnection();
+
+            var query = @"SELECT cus.*, 
+                        ad.Id AddressId, ad.*, 
+                        cd.Id ContactId, cd.* 
+                        FROM Customer cus
+                        left JOIN Address ad on cus.Id=ad.FkCustomerId
+                        left JOIN ContactDetails cd on cus.Id=cd.FkCustomerId";
+
+            var orderDictionary = new Dictionary<int , Customer>();
+            var addressIdList = new List<int>();
+            var contactIdList = new List<int>();
+
+            var resultList = conn.Query<Customer , Address , ContactDetails , Customer>(query ,
+                 (c1 , c2 , c3) => {
+                     Customer orderEntry;
+
+                     if (!orderDictionary.TryGetValue(c1.Id , out orderEntry))
+                     {
+                         orderEntry = c1;
+                         orderEntry.primary_address = new List<Address>();
+                         orderEntry.primary_contact = new List<ContactDetails>();
+                         orderDictionary.Add(orderEntry.Id , orderEntry);
+                     }
+
+                     if (!addressIdList.Contains(c2.Id))
+                     {
+                         orderEntry.primary_address.Add(c2);
+                         addressIdList.Add(c2.Id );
+                     }
+
+                     if (!contactIdList.Contains(c3.Id))
+                     {
+                         orderEntry.primary_contact.Add(c3);
+                         contactIdList.Add(c3.Id);
+                     }
+
+                     return orderEntry;
+                 } ,
+                 splitOn: "AddressId,ContactId"
+                )
+            .Distinct()
+            .ToList();
+
+
+
+
+
+
+
+
+
+
+
+
+    public class Customer
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Mobile { get; set; }
+        public List<Address> primary_address { get; set; }
+        public List<ContactDetails> primary_contact { get; set; }
+        public List<ContactDetails> secondary_contact { get; set; }
+    }
+    public class Address
+    {
+        public int Id { get; set; }
+        public int FkCustomerId { get; set; }
+        public string City { get; set; }
+        public string Town { get; set; }
+    }
+
+    public class ContactDetails
+    {
+        public int Id { get; set; }
+        public int FkCustomerId { get; set; }
+        public string Name { get; set; }
+    }

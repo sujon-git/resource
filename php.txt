@@ -1,0 +1,4 @@
+#file write-
+$fptr = fopen('C:\Users\USER\Desktop\Temp\temp.txt','w');
+fwrite($fptr,"i am writing file in this");
+fclose($fptr);

@@ -1,0 +1,16 @@
+#Create new web api project
+>>dotnet new webapi -o MyMicroservice --no-https -f net6.0
+
+#Go to folder
+>>cd MyMicroservice
+
+#build application
+>>dotnet run
+
+#Create docker file on project
+>>fsutil file createnew Dockerfile 0
+
+#LINQ recursive query to show parent child relation
+https://docs.microsoft.com/en-us/answers/questions/381019/c-linq-recursive-query-to-show-parent-child-relati.html
+
+

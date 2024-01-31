@@ -1,0 +1,23 @@
+ফ্রন্ট-এন্ড এবং ব্যাক-এন্ড প্রজেক্টের জন্য ফ্রি হোস্টিং প্ল্যাটফর্ম 🌐
+Front-end:
+→ Netlify
+→ Vercel
+→ Github pages
+→ render. com
+→ surge. sh
+→ fleek. co
+→ Google FB Hosting
+Back-end:
+→ Heroku
+→ Vercel
+→ Netlify Functions
+→ Glitch. com
+→ fly. io
+→ Google Cloud Functions
+→ Cloudflare Workers
+Databases:
+→Mongo Atlas
+→Firebase
+→FaunaDB
+→DynamoDB (AWS)
+#freehosting

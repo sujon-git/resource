@@ -1,0 +1,29 @@
+#add two package
+	1. Dapper
+	2. System.Data.SqlClient
+
+#add connectionString on appsetting like:
+  "ConnectionStrings": {
+    "SqlConnection": "Server=DESKTOP-GH6DRR5;Initial Catalog=DETS_4;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=sa;"
+  },
+
+#add on startup>ConfigureServices
+
+            var connectionString = Configuration["ConnectionStrings:SqlConnection"];
+            services.AddTransient<IDbConnection>(db => new SqlConnection(connectionString));
+
+#in repository
+
+        private readonly IDbConnection _connection;
+        public ExamRepository(IDbConnection connection)
+        {
+            _connection = connection;
+        }
+
+        public async Task UpdateAnswerPaper(ExamAnswerPaper paper)
+        {
+            var sql = @"UPDATE [exam].[ExamAnswerPapers] 
+                    SET [Answer] = @answer, [Height] = @height, [Width] = @width 
+                    WHERE [Id] = @id;";
+            await _connection.ExecuteAsync(sql, new { answer = paper.Answer, height = paper.Height, width = paper.Width, id = paper.Id });
+        }

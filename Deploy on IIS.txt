@@ -1,0 +1,22 @@
+#.net core:
+	1. Publish from visual studio
+	2. Add a site in IIS and select project path
+	3. Update application pool .NET CLR Version as 'No Managed Code'
+	4. Update 'appsettings.json' file with appropriate db connection.
+	5. Update 'AllowedOrigins' in 'appsettings.json' with appropriate url
+	6. Open url on browser
+	7. If showing 'HTTP 500.19 Internal Server Error', install .Net Core hosting bundle
+		url: https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?tabs=aspnetcore2x&view=aspnetcore-5.0
+	
+
+#angular:
+	1. Change environment url with appropriate url
+	2. Build application with command line
+	3. Add a site in IIS and select project path
+	4. If showing 'HTTP 500.19 Internal Server Error', install 'URL Rewrite'
+
+
+#add domain url:
+	1. Right click website
+	2. Click Edit Bindings 
+	3. Add new binding with appropriate url without http://

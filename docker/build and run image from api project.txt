@@ -1,0 +1,5 @@
+
+docker build -t brokerapi .
+
+docker run --rm --name brokerApi -v brokerVol:/usr/src/app --net brokerNet -p 3000:3000 brokerapi
+
